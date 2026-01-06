@@ -60,6 +60,7 @@ export default function Navbar() {
           {/* --- MENU DESKTOP --- */}
           <div className="hidden md:flex space-x-8">
             <NavLink href="/" currentPath={pathname} isTransparent={isTransparent}>Beranda</NavLink>
+            <NavLink href="/renungan" currentPath={pathname} isTransparent={isTransparent} >Renungan</NavLink>
             <NavLink href="/warta" currentPath={pathname} isTransparent={isTransparent}>Warta Jemaat</NavLink>
             <NavLink href="/pelayanan" currentPath={pathname} isTransparent={isTransparent}>Pelayanan</NavLink>
             <NavLink href="/tentang" currentPath={pathname} isTransparent={isTransparent}>Tentang Kami</NavLink>
@@ -96,6 +97,7 @@ export default function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <MobileNavLink href="/" onClick={closeMenu}>Beranda</MobileNavLink>
             <MobileNavLink href="/warta" onClick={closeMenu}>Warta Jemaat</MobileNavLink>
+            <MobileNavLink href="/renungan" onClick={closeMenu} >Renungan</MobileNavLink>
             <MobileNavLink href="/pelayanan" onClick={closeMenu}>Pelayanan & Wilayah</MobileNavLink>
             <MobileNavLink href="/tentang" onClick={closeMenu}>Tentang Kami</MobileNavLink>
             <MobileNavLink href="/galeri" onClick={closeMenu}>Dokumentasi</MobileNavLink>
