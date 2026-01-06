@@ -58,7 +58,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* === 2. JADWAL IBADAH (REVISI LENGKAP) === */}
+      {/* === 2. JADWAL IBADAH === */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -66,66 +66,53 @@ export default async function Home() {
             <p className="text-gray-600 mt-2">Mari bersekutu memuji Tuhan bersama kami.</p>
           </div>
 
-          {/* ROW 1: IBADAH UMUM (3 KOLOM) */}
+          {/* ROW 1: IBADAH UMUM */}
           <div className="mb-6">
             <h3 className="text-center text-blue-900 font-bold mb-6 text-lg uppercase tracking-wide border-b border-gray-200 pb-2 max-w-xs mx-auto">Ibadah Umum</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              {/* Pagi */}
               <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500 text-center hover:shadow-md transition-shadow">
                 <div className="text-3xl mb-3">🌅</div>
                 <h3 className="text-lg font-bold text-gray-900">Minggu Pagi</h3>
                 <p className="text-2xl font-bold text-blue-600 my-2">07.00 WIB</p>
                 <span className="text-sm text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">Bahasa Indonesia</span>
               </div>
-
-              {/* Siang */}
               <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-teal-500 text-center hover:shadow-md transition-shadow">
                 <div className="text-3xl mb-3">☀️</div>
                 <h3 className="text-lg font-bold text-gray-900">Minggu Siang</h3>
                 <p className="text-2xl font-bold text-teal-600 my-2">10.00 WIB</p>
                 <span className="text-sm text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">Bhs. Batak Toba</span>
               </div>
-
-              {/* Sore */}
               <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-indigo-500 text-center hover:shadow-md transition-shadow">
                 <div className="text-3xl mb-3">🌇</div>
                 <h3 className="text-lg font-bold text-gray-900">Minggu Sore</h3>
                 <p className="text-2xl font-bold text-indigo-600 my-2">17.00 WIB</p>
                 <span className="text-sm text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">Bahasa Indonesia</span>
               </div>
-
             </div>
           </div>
 
-          {/* ROW 2: KATEGORIAL (2 KOLOM DI TENGAH) */}
+          {/* ROW 2: KATEGORIAL */}
           <div className="mt-10 max-w-4xl mx-auto">
             <h3 className="text-center text-yellow-600 font-bold mb-6 text-lg uppercase tracking-wide border-b border-gray-200 pb-2 max-w-xs mx-auto">Kategorial</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              {/* Sekolah Minggu */}
               <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-yellow-400 text-center hover:shadow-md transition-shadow">
                 <div className="text-3xl mb-3">👶</div>
                 <h3 className="text-lg font-bold text-gray-900">Sekolah Minggu</h3>
                 <p className="text-2xl font-bold text-yellow-600 my-2">07.00 WIB</p>
                 <span className="text-sm text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">Anak-anak</span>
               </div>
-
-              {/* Pra Remaja */}
               <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-orange-400 text-center hover:shadow-md transition-shadow">
                 <div className="text-3xl mb-3">🧑‍🎓</div>
                 <h3 className="text-lg font-bold text-gray-900">Pra Remaja</h3>
                 <p className="text-2xl font-bold text-orange-600 my-2">10.00 WIB</p>
                 <span className="text-sm text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">Kelas Khusus</span>
               </div>
-
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* === 3. AYAT / QUOTE HARIAN === */}
+      {/* === 3. AYAT HARIAN === */}
       <section className="py-20 bg-blue-900 text-white text-center px-4">
         <div className="max-w-4xl mx-auto">
           <p className="text-2xl md:text-3xl font-serif italic leading-relaxed opacity-90">
@@ -137,8 +124,8 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* === 4. PROFIL PELAYAN (PENDETA) === */}
-      <section className="max-w-6xl mx-auto py-20 px-4">
+      {/* === 4. PROFIL PELAYAN === */}
+      <section className="max-w-7xl mx-auto py-20 px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900">Pelayan Firman</h2>
           <p className="mt-2 text-gray-600">
@@ -146,12 +133,19 @@ export default async function Home() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8">
+        {/* GRID 2 KOLOM */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {data.map((item: any) => {
-            // Support Strapi v4 & v5
-            const nama = item.nama_lengkap || item.attributes?.nama_lengkap;
-            const jabatan = item.jabatan || item.attributes?.jabatan;
-            const fotoData = item.foto || item.attributes?.foto;
+            const attr = item.attributes || {}; 
+
+            const nama = 
+              item.nama_pendeta || 
+              attr.nama_pendeta || 
+              "Nama Tidak Ditemukan";
+
+            const jabatan = item.jabatan || attr.jabatan;
+            
+            const fotoData = item.foto || attr.foto;
             const imgUrl =
               fotoData?.url ||
               fotoData?.data?.attributes?.url ||
@@ -160,27 +154,38 @@ export default async function Home() {
             return (
               <div
                 key={item.id || item.documentId}
-                className="w-full sm:w-80 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                className="w-full bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-gray-100 flex flex-col"
               >
-                <div className="relative h-64 w-full bg-gray-200">
+                {/* 
+                   REVISI DI SINI:
+                   - 'aspect-video': Memaksa rasio 16:9 (Memanjang/Landscape)
+                   - 'w-full': Lebar mengikuti container
+                */}
+                <div className="relative w-full aspect-video bg-gray-200 overflow-hidden">
                   {imgUrl ? (
                     <Image
                       src={`${STRAPI_URL}${imgUrl}`}
-                      alt={nama || "Foto Dokumentasi"}
+                      alt={nama}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                       unoptimized
                     />
                   ) : (
-                    <div className="flex items-center justify-center h-full text-gray-400">
-                      No Photo
+                    <div className="flex items-center justify-center h-full text-gray-400 bg-gray-100">
+                      <span className="text-6xl">👤</span>
                     </div>
                   )}
                 </div>
 
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-gray-900">{nama}</h3>
-                  <p className="text-blue-600 font-medium mt-1">{jabatan}</p>
+                {/* INFO PENDETA (Ditaruh di bawah foto, bukan overlay) */}
+                <div className="p-6 text-center bg-white">
+                  <div className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">
+                     {jabatan || "Pelayan"}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 leading-tight mb-1">
+                    {nama}
+                  </h3>
+                  <p className="text-gray-500 text-sm">Ressort Bonang Indah</p>
                 </div>
               </div>
             );
