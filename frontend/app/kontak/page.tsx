@@ -136,7 +136,7 @@ export default function KontakPage() {
             </div>
 
             {/* KARTU REKENING */}
-            <div className="bg-gradient-to-r from-blue-800 to-blue-900 p-6 rounded-xl shadow-lg text-white">
+            <div className="bg-linear-to-r from-blue-800 to-blue-900 p-6 rounded-xl shadow-lg text-white">
               <h2 className="text-lg font-bold mb-4 opacity-90">
                 🏦 Rekening Persembahan
               </h2>

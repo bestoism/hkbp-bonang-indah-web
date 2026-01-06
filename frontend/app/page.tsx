@@ -18,7 +18,7 @@ export default async function Home() {
     <main className="min-h-screen bg-white">
       
       {/* === 1. HERO SECTION === */}
-      <section className="relative h-[550px] flex items-center justify-center">
+      <section className="relative h-137.5 flex items-center justify-center">
         <div className="absolute inset-0 bg-black">
           <Image
             src="/foto-gereja.jpg"

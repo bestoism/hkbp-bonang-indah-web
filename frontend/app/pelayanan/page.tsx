@@ -137,7 +137,7 @@ export default async function PelayananPage() {
                     </p>
                   </div>
                   
-                  <div className="p-6 flex-grow">
+                  <div className="p-6 grow">
                     <h4 className="font-bold text-gray-800 mb-3 text-sm uppercase tracking-wide border-b pb-2">
                       Daftar Pelayan & Kontak:
                     </h4>
