@@ -77,7 +77,7 @@ export default function Footer() {
       
       {/* COPYRIGHT */}
       <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} HKBP Bonang Indah. Developed by Tim IT & Multimedia.
+        &copy; {new Date().getFullYear()} HKBP Bonang Indah. Developed by TEAM MULTIMEDIA HKBP BONANG INDAH.
       </div>
     </footer>
   );
