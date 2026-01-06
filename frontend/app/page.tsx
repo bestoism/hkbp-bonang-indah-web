@@ -182,7 +182,7 @@ export default async function Home() {
                   )}
                 </div>
 
-                <div className="p-8 text-center bg-white flex-grow flex flex-col justify-center">
+                <div className="p-8 text-center bg-white grow flex flex-col justify-center">
                   <div>
                     <div className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wide">
                        {jabatan || "Pelayan"}
