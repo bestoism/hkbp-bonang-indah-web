@@ -13,35 +13,38 @@ export default function Footer() {
             dan menjadi berkat bagi lingkungan sekitar di wilayah Tangerang dan Banten.
           </p>
           <div className="flex space-x-4">
-             {/* Link Sosmed (Bisa diisi link asli nanti) */}
              <Link href="https://www.youtube.com/@hkbpbonangindah" target="_blank" className="text-gray-400 hover:text-red-500 transition-colors">
                Youtube
              </Link>
-             <Link href="https://www.facebook.com/gereja.indah.35" target="_blank" className="text-gray-400 hover:text-blue-500 transition-colors">
+             <Link href="https://facebook.com" target="_blank" className="text-gray-400 hover:text-blue-500 transition-colors">
                Facebook
              </Link>
           </div>
         </div>
 
-        {/* KOLOM 2: JADWAL PELAYANAN */}
+        {/* KOLOM 2: JADWAL PELAYANAN (UPDATED) */}
         <div>
           <h3 className="text-white text-lg font-bold mb-4">Jadwal Minggu</h3>
           <ul className="text-sm space-y-3 text-gray-400">
             <li className="flex items-start gap-2">
               <span className="text-blue-500">🕗</span> 
-              <span>07.00 WIB - Ibadah Pagi (Bhs. Indonesia)</span>
+              <span>07.00 - Pagi (Bhs. Indonesia)</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-500">🕙</span> 
-              <span>10.00 WIB - Ibadah Siang (Bhs. Batak)</span>
+              <span className="text-teal-500">🕙</span> 
+              <span>10.00 - Siang (Bhs. Batak)</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-500">👶</span> 
-              <span>07.00 & 09.00 WIB - Sekolah Minggu</span>
+              <span className="text-indigo-500">🌇</span> 
+              <span>17.00 - Sore (Bhs. Indonesia)</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-500">📖</span> 
-              <span>Katekisasi Sidi (Sesuai Jadwal)</span>
+              <span className="text-yellow-500">👶</span> 
+              <span>07.00 - Sekolah Minggu</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-orange-500">🧑‍🎓</span> 
+              <span>10.00 - Pra Remaja</span>
             </li>
           </ul>
         </div>
@@ -66,7 +69,7 @@ export default function Footer() {
             </div>
             
             <div>
-               <p>Email: secretariat@hkbpbonangindah.org</p>
+               <p>Email: hkbpbonangindah@gmail.com</p>
             </div>
           </div>
         </div>
@@ -74,7 +77,7 @@ export default function Footer() {
       
       {/* COPYRIGHT */}
       <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} HKBP Bonang Indah. Developed by TEAM MULTIMEDIA HKBP BONANG INDAH.
+        &copy; {new Date().getFullYear()} HKBP Bonang Indah. Developed by Tim IT & Multimedia.
       </div>
     </footer>
   );
