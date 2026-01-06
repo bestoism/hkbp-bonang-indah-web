@@ -58,17 +58,16 @@ export default function Navbar() {
           </div>
 
           {/* --- MENU DESKTOP --- */}
+          {/* Urutan Baru: Beranda -> Tentang -> Pelayanan -> Warta -> Renungan -> Galeri -> Kontak */}
           <div className="hidden md:flex space-x-8">
             <NavLink href="/" currentPath={pathname} isTransparent={isTransparent}>Beranda</NavLink>
-            <NavLink href="/renungan" currentPath={pathname} isTransparent={isTransparent} >Renungan</NavLink>
-            <NavLink href="/warta" currentPath={pathname} isTransparent={isTransparent}>Warta Jemaat</NavLink>
-            <NavLink href="/pelayanan" currentPath={pathname} isTransparent={isTransparent}>Pelayanan</NavLink>
             <NavLink href="/tentang" currentPath={pathname} isTransparent={isTransparent}>Tentang Kami</NavLink>
+            <NavLink href="/pelayanan" currentPath={pathname} isTransparent={isTransparent}>Pelayanan</NavLink>
+            <NavLink href="/warta" currentPath={pathname} isTransparent={isTransparent}>Warta Jemaat</NavLink>
+            <NavLink href="/renungan" currentPath={pathname} isTransparent={isTransparent}>Renungan</NavLink>
             <NavLink href="/galeri" currentPath={pathname} isTransparent={isTransparent}>Dokumentasi</NavLink>
             <NavLink href="/kontak" currentPath={pathname} isTransparent={isTransparent}>Hubungi Kami</NavLink>
           </div>
-
-          {/* --- TOMBOL LOGIN DIHAPUS (Hanya Tim Multimedia yang tau URL Admin) --- */}
 
           {/* --- HAMBURGER BUTTON --- */}
           <div className="md:hidden flex items-center">
@@ -96,14 +95,12 @@ export default function Navbar() {
         <div className="md:hidden bg-blue-900 border-t border-blue-800 shadow-xl">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <MobileNavLink href="/" onClick={closeMenu}>Beranda</MobileNavLink>
-            <MobileNavLink href="/warta" onClick={closeMenu}>Warta Jemaat</MobileNavLink>
-            <MobileNavLink href="/renungan" onClick={closeMenu} >Renungan</MobileNavLink>
-            <MobileNavLink href="/pelayanan" onClick={closeMenu}>Pelayanan & Wilayah</MobileNavLink>
             <MobileNavLink href="/tentang" onClick={closeMenu}>Tentang Kami</MobileNavLink>
+            <MobileNavLink href="/pelayanan" onClick={closeMenu}>Pelayanan & Wilayah</MobileNavLink>
+            <MobileNavLink href="/warta" onClick={closeMenu}>Warta Jemaat</MobileNavLink>
+            <MobileNavLink href="/renungan" onClick={closeMenu}>Renungan</MobileNavLink>
             <MobileNavLink href="/galeri" onClick={closeMenu}>Dokumentasi</MobileNavLink>
             <MobileNavLink href="/kontak" onClick={closeMenu}>Hubungi Kami</MobileNavLink>
-            
-            {/* Tombol Login Mobile juga dihapus */}
           </div>
         </div>
       )}
