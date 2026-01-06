@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wartas",
+  "info": {
+    "singularName": "warta",
+    "pluralName": "wartas",
+    "displayName": "WARTA"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "judul": {
+      "type": "string"
+    },
+    "tanggal": {
+      "type": "date"
+    },
+    "file_pdf": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ringkasan": {
+      "type": "blocks"
+    }
+  }
+}
