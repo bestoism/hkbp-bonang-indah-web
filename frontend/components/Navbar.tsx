@@ -63,6 +63,7 @@ export default function Navbar() {
             <NavLink href="/warta" currentPath={pathname} isTransparent={isTransparent}>Warta Jemaat</NavLink>
             <NavLink href="/pelayanan" currentPath={pathname} isTransparent={isTransparent}>Pelayanan</NavLink>
             <NavLink href="/tentang" currentPath={pathname} isTransparent={isTransparent}>Tentang Kami</NavLink>
+            <NavLink href="/galeri" currentPath={pathname} isTransparent={isTransparent}>Dokumentasi</NavLink>
             <NavLink href="/kontak" currentPath={pathname} isTransparent={isTransparent}>Hubungi Kami</NavLink>
           </div>
 
@@ -97,6 +98,7 @@ export default function Navbar() {
             <MobileNavLink href="/warta" onClick={closeMenu}>Warta Jemaat</MobileNavLink>
             <MobileNavLink href="/pelayanan" onClick={closeMenu}>Pelayanan & Wilayah</MobileNavLink>
             <MobileNavLink href="/tentang" onClick={closeMenu}>Tentang Kami</MobileNavLink>
+            <MobileNavLink href="/galeri" onClick={closeMenu}>Dokumentasi</MobileNavLink>
             <MobileNavLink href="/kontak" onClick={closeMenu}>Hubungi Kami</MobileNavLink>
             
             {/* Tombol Login Mobile juga dihapus */}
