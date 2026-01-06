@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* KOLOM 2: JADWAL PELAYANAN (UPDATED) */}
+        {/* KOLOM 2: JADWAL PELAYANAN */}
         <div>
           <h3 className="text-white text-lg font-bold mb-4">Jadwal Minggu</h3>
           <ul className="text-sm space-y-3 text-gray-400">
@@ -49,10 +49,9 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* KOLOM 3: KONTAK & ALAMAT */}
+        {/* KOLOM 3: KONTAK & ALAMAT (UPDATED) */}
         <div>
           <h3 className="text-white text-lg font-bold mb-4">Hubungi Kami</h3>
-          
           <div className="space-y-4 text-sm text-gray-400">
             <div>
               <p className="font-bold text-gray-200">Gedung Gereja:</p>
@@ -63,13 +62,24 @@ export default function Footer() {
 
             <div>
               <p className="font-bold text-gray-200">Kontak Sekretariat:</p>
-              <p className="hover:text-white transition-colors">
+              {/* Link WA Aktif */}
+              <a 
+                href="https://wa.me/6281310150145" 
+                target="_blank" 
+                className="hover:text-green-400 transition-colors block"
+              >
                 WA: 0813-1015-0145 (Inang D. Simanungkalit)
-              </p>
+              </a>
             </div>
             
             <div>
-               <p>Email: hkbpbonangindah@gmail.com</p>
+              {/* Link Email Aktif */}
+              <a 
+                href="mailto:hkbpbonangindah@gmail.com" 
+                className="hover:text-blue-400 transition-colors block"
+              >
+                Email: hkbpbonangindah@gmail.com
+              </a>
             </div>
           </div>
         </div>

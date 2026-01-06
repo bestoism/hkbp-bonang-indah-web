@@ -19,7 +19,7 @@ export default async function Home() {
     <main className="min-h-screen bg-white">
       
       {/* === 1. HERO SECTION: Full Screen (Tetap) === */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 bg-black">
           <Image
             src="/foto-gereja.jpg"
