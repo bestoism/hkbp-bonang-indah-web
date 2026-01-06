@@ -21,6 +21,9 @@ export default function Navbar() {
             <Link href="/warta" className="hover:text-blue-200 transition-colors">
               Warta Jemaat
             </Link>
+            <Link href="/pelayanan" className="hover:text-blue-200 transition-colors">
+              Pelayanan & Wilayah
+            </Link>
             <Link href="/tentang" className="hover:text-blue-200 transition-colors">
               Tentang Kami
             </Link>

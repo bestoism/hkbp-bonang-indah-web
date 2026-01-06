@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wijks",
+  "info": {
+    "singularName": "wijk",
+    "pluralName": "wijks",
+    "displayName": "Wijk"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    },
+    "pelayan": {
+      "type": "blocks"
+    }
+  }
+}

@@ -430,6 +430,36 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiJadwalJadwal extends Struct.CollectionTypeSchema {
+  collectionName: 'jadwals';
+  info: {
+    displayName: 'Jadwal';
+    pluralName: 'jadwals';
+    singularName: 'jadwal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hari: Schema.Attribute.String;
+    kegiatan: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::jadwal.jadwal'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    urutan: Schema.Attribute.Integer;
+  };
+}
+
 export interface ApiPendetaPendeta extends Struct.CollectionTypeSchema {
   collectionName: 'pendetas';
   info: {
@@ -536,6 +566,33 @@ export interface ApiWartaWarta extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     ringkasan: Schema.Attribute.Blocks;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWijkWijk extends Struct.CollectionTypeSchema {
+  collectionName: 'wijks';
+  info: {
+    displayName: 'Wijk';
+    pluralName: 'wijks';
+    singularName: 'wijk';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    area: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::wijk.wijk'> &
+      Schema.Attribute.Private;
+    nama: Schema.Attribute.String;
+    pelayan: Schema.Attribute.Blocks;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1052,9 +1109,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::jadwal.jadwal': ApiJadwalJadwal;
       'api::pendeta.pendeta': ApiPendetaPendeta;
       'api::tata-ibadah.tata-ibadah': ApiTataIbadahTataIbadah;
       'api::warta.warta': ApiWartaWarta;
+      'api::wijk.wijk': ApiWijkWijk;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
