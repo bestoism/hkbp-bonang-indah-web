@@ -97,6 +97,7 @@ export default function GaleriPage() {
                       alt={judul}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      unoptimized
                     />
                   ) : (
                     <div className="flex items-center justify-center h-full text-gray-400">
