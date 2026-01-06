@@ -14,7 +14,6 @@ export default function Navbar() {
   // Logic Scroll Listener
   useEffect(() => {
     const handleScroll = () => {
-      // Jika scroll lebih dari 20px, anggap sudah discroll
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
@@ -30,24 +29,13 @@ export default function Navbar() {
 
   const closeMenu = () => setIsOpen(false);
 
-  // --- LOGIKA STYLE NAVBAR BARU ---
-  // 1. Position: 
-  //    - Homepage: 'fixed' (supaya gambar Hero terlihat di belakang navbar)
-  //    - Halaman lain: 'sticky' (supaya konten tidak ketutup navbar)
-  // 2. Background:
-  //    - Homepage & Belum Scroll: 'bg-transparent' (Bening)
-  //    - Homepage & Sudah Scroll: 'bg-blue-900' (Biru Solid)
-  //    - Halaman lain: 'bg-blue-900' (Selalu Biru)
-  
   const isTransparent = isHomePage && !isScrolled;
 
-const navbarClasses = `
+  const navbarClasses = `
     z-50 w-full transition-all duration-300 ease-in-out
     ${isHomePage ? "fixed top-0" : "sticky top-0 shadow-md"}
     ${isTransparent 
-        // Ganti border-white/0 menjadi border-transparent (agar tidak membawa unsur warna putih)
         ? "bg-transparent shadow-none border-b border-transparent" 
-        // Tambahkan border-b border-blue-900 disini agar tinggi navbar tidak 'lompat' 1px dan warnanya menyatu
         : "bg-blue-900 shadow-md border-b border-blue-900" 
     }
     text-white
@@ -78,20 +66,7 @@ const navbarClasses = `
             <NavLink href="/kontak" currentPath={pathname} isTransparent={isTransparent}>Hubungi Kami</NavLink>
           </div>
 
-          {/* --- TOMBOL LOGIN --- */}
-          <div className="hidden md:block">
-            <Link 
-              href={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/admin`}
-              target="_blank"
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                isTransparent 
-                  ? "bg-white/20 hover:bg-white/30 text-white border border-white/50" 
-                  : "bg-blue-700 hover:bg-blue-600 text-white"
-              }`}
-            >
-              Login Majelis
-            </Link>
-          </div>
+          {/* --- TOMBOL LOGIN DIHAPUS (Hanya Tim Multimedia yang tau URL Admin) --- */}
 
           {/* --- HAMBURGER BUTTON --- */}
           <div className="md:hidden flex items-center">
@@ -115,7 +90,6 @@ const navbarClasses = `
       </div>
 
       {/* --- MOBILE MENU --- */}
-      {/* Background Mobile Menu selalu Biru Solid biar tulisan terbaca jelas */}
       {isOpen && (
         <div className="md:hidden bg-blue-900 border-t border-blue-800 shadow-xl">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -125,14 +99,7 @@ const navbarClasses = `
             <MobileNavLink href="/tentang" onClick={closeMenu}>Tentang Kami</MobileNavLink>
             <MobileNavLink href="/kontak" onClick={closeMenu}>Hubungi Kami</MobileNavLink>
             
-            <Link 
-              href={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/admin`}
-              target="_blank"
-              onClick={closeMenu}
-              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-blue-800 text-white mt-4 hover:bg-blue-700"
-            >
-              Login Majelis
-            </Link>
+            {/* Tombol Login Mobile juga dihapus */}
           </div>
         </div>
       )}
@@ -144,10 +111,6 @@ const navbarClasses = `
 
 function NavLink({ href, children, currentPath, isTransparent }: { href: string, children: React.ReactNode, currentPath: string, isTransparent: boolean }) {
   const isActive = currentPath === href;
-  
-  // Logic warna text menu
-  // Kalau Transparent: Text putih agak redup, hover putih terang
-  // Kalau Solid (Biru): Text biru muda, hover putih
   
   return (
     <Link 
