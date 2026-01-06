@@ -42,10 +42,11 @@ export default function KontakPage() {
               </div>
             </div>
 
-            {/* GOOGLE MAPS EMBED */}
-            <div className="bg-gray-200 rounded-xl overflow-hidden h-80 shadow-sm border border-gray-200">
+            {/* GOOGLE MAPS EMBED (UPDATED) */}
+            <div className="bg-gray-200 rounded-xl overflow-hidden h-96 shadow-sm border border-gray-200 relative">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.196327317765!2d106.6115!3d-6.2378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fc7d1d2c6b1f%3A0x401576d14feb9e0!2sHKBP%20Bonang%20Indah!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                title="Peta Lokasi HKBP Bonang Indah"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0398327376747!2d106.5975021!3d-6.2507062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fc7c56475659%3A0x286317740523097c!2sHKBP%20Bonang%20Indah!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
                 width="100%" 
                 height="100%" 
                 style={{border:0}} 
@@ -53,6 +54,16 @@ export default function KontakPage() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full"
               ></iframe>
+              {/* Tombol Buka di App (Overlay) */}
+              <div className="absolute bottom-4 right-4">
+                 <a 
+                   href="https://maps.app.goo.gl/6yym7SufM35fcFz3A" 
+                   target="_blank"
+                   className="bg-white text-blue-700 text-xs font-bold px-3 py-2 rounded shadow-lg hover:bg-gray-100 flex items-center gap-1"
+                 >
+                   🗺️ Buka di Google Maps
+                 </a>
+              </div>
             </div>
           </div>
 

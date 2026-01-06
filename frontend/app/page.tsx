@@ -127,8 +127,9 @@ export default async function Home() {
       <section className="py-20 bg-blue-900 text-white text-center px-4">
         <div className="max-w-4xl mx-auto">
           <p className="text-2xl md:text-3xl font-serif italic leading-relaxed opacity-90">
-            "Aku bersukacita, ketika dikatakan orang kepadaku: 'Mari kita pergi
-            ke rumah TUHAN.'"
+            "Aku bersukacita, ketika dikatakan orang kepadaku:
+            <br />
+            'Mari kita pergike rumah TUHAN.'"
           </p>
           <p className="mt-6 text-blue-200 font-bold tracking-wide">
             — Mazmur 122:1
