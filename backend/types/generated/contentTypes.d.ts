@@ -485,6 +485,36 @@ export interface ApiPendetaPendeta extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTataIbadahTataIbadah extends Struct.CollectionTypeSchema {
+  collectionName: 'tata_ibadahs';
+  info: {
+    displayName: 'TATA IBADAH';
+    pluralName: 'tata-ibadahs';
+    singularName: 'tata-ibadah';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    judul: Schema.Attribute.String;
+    link_drive_tata_ibadah: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tata-ibadah.tata-ibadah'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    ringkasan: Schema.Attribute.Blocks;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWartaWarta extends Struct.CollectionTypeSchema {
   collectionName: 'wartas';
   info: {
@@ -499,17 +529,13 @@ export interface ApiWartaWarta extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    file_pdf: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
     judul: Schema.Attribute.String;
+    link_drive_warta: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::warta.warta'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     ringkasan: Schema.Attribute.Blocks;
-    tanggal: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1027,6 +1053,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::pendeta.pendeta': ApiPendetaPendeta;
+      'api::tata-ibadah.tata-ibadah': ApiTataIbadahTataIbadah;
       'api::warta.warta': ApiWartaWarta;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "wartas",
+  "collectionName": "tata_ibadahs",
   "info": {
-    "singularName": "warta",
-    "pluralName": "wartas",
-    "displayName": "WARTA"
+    "singularName": "tata-ibadah",
+    "pluralName": "tata-ibadahs",
+    "displayName": "TATA IBADAH"
   },
   "options": {
     "draftAndPublish": true
@@ -17,7 +17,7 @@
     "ringkasan": {
       "type": "blocks"
     },
-    "link_drive_warta": {
+    "link_drive_tata_ibadah": {
       "type": "string"
     }
   }
