@@ -31,3 +31,50 @@ export async function getRenungan() {
     return null;
   }
 }
+
+export async function getAyatHariIni() {
+  try {
+    const response = await fetch('https://www.bible.com/id/verse-of-the-day', {
+      next: { revalidate: 3600 },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      }
+    });
+
+    const html = await response.text();
+    const $ = cheerio.load(html);
+
+    // Cari container utama berdasarkan pola HTML yang kamu kirim
+    // Kita cari <div> yang mengandung teks ayat dan nats
+    const verseContainer = $('.mbs-2.border-l-large').first();
+
+    // 1. Ambil Ayat (Anchor pertama di dalam container)
+    let verseText = verseContainer.find('a').first().text().trim();
+
+    // 2. Ambil Nats/Referensi (Tag <p> di dalam anchor kedua)
+    let verseRef = verseContainer.find('p').text().trim();
+
+    // FALLBACK: Jika selector di atas gagal (karena bible.com sering ganti class), 
+    // kita pakai cara cadangan yang lebih umum:
+    if (!verseText || !verseRef) {
+        verseText = $('meta[property="og:description"]').attr('content') || "";
+        verseRef = $('meta[property="og:title"]').attr('content')?.replace('Ayat Alkitab Hari Ini - ', '') || "";
+        
+        // Bersihkan jika masih dempet (seperti kasus sebelumnya)
+        if (verseRef && verseText.startsWith(verseRef)) {
+          verseText = verseText.replace(verseRef, "").trim();
+        }
+    }
+
+    return {
+      text: verseText,
+      ref: verseRef
+    };
+  } catch (error) {
+    console.error("Gagal scraping ayat:", error);
+    return {
+      text: "Tuhan adalah gembalaku, takkan kekurangan aku.",
+      ref: "Mazmur 23:1"
+    };
+  }
+}

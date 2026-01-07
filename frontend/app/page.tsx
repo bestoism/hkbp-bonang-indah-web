@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RenunganHarian from "@/components/RenunganHarian";
 import VideoSection from "@/components/VideoSection";
+import AyatHariIni from "@/components/AyatHariIni";
 
 import { Sun, SunDim, Sunset, Baby, GraduationCap, ChevronDown } from "lucide-react";
 
@@ -91,7 +92,7 @@ function ScheduleItem({ icon, title, time, lang, color }: any) {
         </div>
       </section>
 
-      {/* === 3. JADWAL IBADAH: Compact Grid & Gaps === */}
+      {/* === 2. JADWAL IBADAH: Compact Grid & Gaps === */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -137,7 +138,7 @@ function ScheduleItem({ icon, title, time, lang, color }: any) {
       </section>
 
 
-      {/* === 2. RENUNGAN HARIAN: Compact Padding === */}
+      {/* === 3. RENUNGAN HARIAN: Compact Padding === */}
       <section className="py-12 px-4 bg-gray-50/50 border-b border-gray-100">
         <div className="max-w-5xl mx-auto">
            <RenunganHarian />
@@ -152,14 +153,9 @@ function ScheduleItem({ icon, title, time, lang, color }: any) {
 
 
       {/* === 4. AYAT HARIAN: Compact Padding === */}
-      <section className="py-16 bg-blue-900 text-white text-center px-4 relative">
-        <div className="max-w-4xl mx-auto relative z-10">
-          <p className="text-2xl md:text-3xl font-serif italic leading-snug opacity-95 mb-6">
-            "Aku bersukacita, ketika dikatakan orang kepadaku:
-            <br />
-            'Mari kita pergi ke rumah TUHAN.'"
-          </p>
-          <p className="text-yellow-400 font-bold tracking-[0.2em] text-sm">— MAZMUR 122:1</p>
+      <section className="py-24 bg-blue-900 text-white text-center px-6 border-y border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <AyatHariIni />
         </div>
       </section>
 
