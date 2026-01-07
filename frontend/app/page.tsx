@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import RenunganHarian from "@/components/RenunganHarian";
+import VideoSection from "@/components/VideoSection";
+
 import { Sun, SunDim, Sunset, Baby, GraduationCap, ChevronDown } from "lucide-react";
 
 async function getPendeta() {
@@ -14,6 +16,37 @@ async function getPendeta() {
 export default async function Home() {
   const { data } = await getPendeta();
   const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+
+function ScheduleItem({ icon, title, time, lang, color }: any) {
+  const colors: any = {
+    blue: "text-blue-600 bg-blue-50 border-blue-100",
+    teal: "text-teal-600 bg-teal-50 border-teal-100",
+    indigo: "text-indigo-600 bg-indigo-50 border-indigo-100",
+    yellow: "text-yellow-600 bg-yellow-50 border-yellow-100",
+    orange: "text-orange-600 bg-orange-50 border-orange-100",
+  };
+
+  return (
+    <div className="flex items-center justify-between p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-md transition-all duration-300">
+      <div className="flex items-center gap-5">
+        <div className={`p-3 rounded-xl border ${colors[color]}`}>
+          {icon}
+        </div>
+        <div>
+          <h4 className="text-lg md:text-xl font-bold text-gray-900 leading-tight">{title}</h4>
+          <p className="text-xs md:text-sm text-gray-500 font-medium mt-1 uppercase tracking-wider">{lang}</p>
+        </div>
+      </div>
+      <div className="text-right">
+        <span className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">
+          {time}
+        </span>
+        <span className="block text-[10px] font-black text-gray-400 uppercase tracking-tighter mt-1">WIB</span>
+      </div>
+    </div>
+  );
+}
+
 
   return (
     <main className="min-h-screen bg-white">
@@ -58,6 +91,52 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* === 3. JADWAL IBADAH: Compact Grid & Gaps === */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">
+              Jadwal Ibadah Minggu
+            </h2>
+            <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
+            
+            {/* Kolom Ibadah Umum */}
+            <div>
+              <div className="flex items-center gap-3 mb-6 border-b-2 border-blue-50 pb-3">
+                <span className="w-2 h-6 bg-blue-600 rounded-full"></span>
+                <h3 className="text-blue-900 font-black text-sm uppercase tracking-[0.2em]">
+                  Ibadah Umum
+                </h3>
+              </div>
+              <div className="space-y-4">
+                <ScheduleItem icon={<Sun size={24}/>} title="Minggu Pagi" time="07.00" lang="Bhs. Indonesia" color="blue" />
+                <ScheduleItem icon={<SunDim size={24}/>} title="Minggu Siang" time="10.00" lang="Batak Toba" color="teal" />
+                <ScheduleItem icon={<Sunset size={24}/>} title="Minggu Sore" time="17.00" lang="Bhs. Indonesia" color="indigo" />
+              </div>
+            </div>
+
+            {/* Kolom Kategorial */}
+            <div>
+              <div className="flex items-center gap-3 mb-6 border-b-2 border-yellow-50 pb-3">
+                <span className="w-2 h-6 bg-yellow-500 rounded-full"></span>
+                <h3 className="text-yellow-700 font-black text-sm uppercase tracking-[0.2em]">
+                  Kategorial
+                </h3>
+              </div>
+              <div className="space-y-4">
+                <ScheduleItem icon={<Baby size={24}/>} title="Sekolah Minggu" time="07.00" lang="Anak-anak" color="yellow" />
+                <ScheduleItem icon={<GraduationCap size={24}/>} title="Pra Remaja" time="10.00" lang="Kelas Khusus" color="orange" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
       {/* === 2. RENUNGAN HARIAN: Compact Padding === */}
       <section className="py-12 px-4 bg-gray-50/50 border-b border-gray-100">
         <div className="max-w-5xl mx-auto">
@@ -65,38 +144,20 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* === 3. JADWAL IBADAH: Compact Grid & Gaps === */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-gray-50/50 border-y border-gray-100">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-black text-gray-900 mb-3">Jadwal Ibadah Minggu</h2>
-            <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
-
-          <div className="mb-12">
-            <h3 className="text-center text-blue-900 font-bold mb-6 text-[10px] uppercase tracking-[0.2em]">Ibadah Umum</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <ScheduleCard icon={<Sun size={24}/>} title="Minggu Pagi" time="07.00" lang="Bhs. Indonesia" accent="blue" />
-              <ScheduleCard icon={<SunDim size={24}/>} title="Minggu Siang" time="10.00" lang="Batak Toba" accent="teal" />
-              <ScheduleCard icon={<Sunset size={24}/>} title="Minggu Sore" time="17.00" lang="Bhs. Indonesia" accent="indigo" />
-            </div>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-center text-yellow-600 font-bold mb-6 text-[10px] uppercase tracking-[0.2em]">Kategorial</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ScheduleCard icon={<Baby size={24}/>} title="Sekolah Minggu" time="07.00" lang="Anak-anak" accent="yellow" />
-              <ScheduleCard icon={<GraduationCap size={24}/>} title="Pra Remaja" time="10.00" lang="Kelas Khusus" accent="orange" />
-            </div>
-          </div>
+          <VideoSection />
         </div>
       </section>
+
 
       {/* === 4. AYAT HARIAN: Compact Padding === */}
       <section className="py-16 bg-blue-900 text-white text-center px-4 relative">
         <div className="max-w-4xl mx-auto relative z-10">
           <p className="text-2xl md:text-3xl font-serif italic leading-snug opacity-95 mb-6">
-            "Aku bersukacita, ketika dikatakan orang kepadaku: 'Mari kita pergi ke rumah TUHAN.'"
+            "Aku bersukacita, ketika dikatakan orang kepadaku:
+            <br />
+            'Mari kita pergi ke rumah TUHAN.'"
           </p>
           <p className="text-yellow-400 font-bold tracking-[0.2em] text-sm">— MAZMUR 122:1</p>
         </div>
