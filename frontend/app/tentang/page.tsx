@@ -12,7 +12,7 @@ export default function TentangPage() {
     <main className="min-h-screen bg-white">
       
       {/* --- 1. HERO SECTION: Compact with Background Image --- */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden pt-16">
+      <section className="relative h-[250px] md:h-[300px] lg:h-[35vh] flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 bg-black">
           <Image
             src="/foto-gereja.jpg"

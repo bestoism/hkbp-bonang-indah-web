@@ -53,7 +53,7 @@ export default function GaleriPage() {
     <main className="min-h-screen bg-white">
       
       {/* --- 1. HERO SECTION (Compact & Consistent) --- */}
-      <section className="relative h-[35vh] flex items-center justify-center overflow-hidden pt-16">
+      <section className="relative h-[250px] md:h-[300px] lg:h-[35vh] flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 bg-black">
           <Image
             src="/foto-gereja.jpg"
