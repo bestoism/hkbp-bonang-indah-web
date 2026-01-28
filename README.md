@@ -33,4 +33,4 @@ Since this is the initial setup, the specific frameworks will be installed in th
 *   Tim IT HKBP Bonang Indah
 
 ---
-*Created for digital ministry and seamless regeneration.*
+*Created for digital ministry and seamless regeneration.* ....
